@@ -2,6 +2,9 @@
 
 O repositório da matéria de laboratório de programação 2 de Java
 
+## Bibliotecas externas obrigatórias
+-  [lista-lib](https://github.com/ryguigas0/lista-lib)
+
 ## Ferramentas usadas
 
 - [WSL2](https://docs.microsoft.com/pt-br/windows/wsl/about): rodar linux com
