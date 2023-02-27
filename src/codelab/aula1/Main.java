@@ -1,10 +1,10 @@
 package codelab.aula1;
 
-import lista.simples.Lista;
+import lista.simples.ListaSimples;
 
 public class Main {
     public static void main(String[] args) {
-        Lista l = new Lista();
+        ListaSimples l = new ListaSimples();
         System.out.println(l);
 
         l.inserirComeco("A");
