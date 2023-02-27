@@ -1,11 +1,11 @@
 package codelab.aula1;
 
-import teste.Lista;
+import lista.simples.Lista;
 
 public class Main {
     public static void main(String[] args) {
         Lista l = new Lista();
-        l.printarLista();
+        System.out.println(l);
 
         l.inserirComeco("A");
         l.inserirComeco("B");
@@ -17,7 +17,7 @@ public class Main {
         l.inserirFim("G");
         l.inserirFim("H");
 
-        l.printarLista();
+        System.out.println(l);
         System.out.println("Começo: " + l.primeiroNodo().nomeNodo());
         System.out.println("Final: " + l.ultimoNodo().nomeNodo());
     }
