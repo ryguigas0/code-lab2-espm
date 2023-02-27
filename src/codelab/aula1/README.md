@@ -1,6 +1,7 @@
 # Aula 1 - Lista linear simplesmente encadeada
 
 ## O que é uma lista linear simplesmente encadeada?
+
 ```java
 int[] vetor = new int[10]; // Tamanho fixo -> E se eu precisar de mais que 10 elementos?
 vetor[2] = 22; // Recuperação por indice rápida
@@ -41,6 +42,7 @@ l.inserirFim(96); // O velho nodo de fim tem como próximo o novo nodo de fim
 ```
 
 ## Importando bibliotecas
+
 1. Clone e siga as intruções da [lista-lib](https://github.com/ryguigas0/lista-lib)
 2. `CTRL + Shift + P`
 3. Selecione `Java: Configure Classpath`
