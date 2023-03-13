@@ -3,15 +3,13 @@ package codelab.aula4.pacientes;
 import java.util.Scanner;
 
 import lista.dupla.ListaDuplaGenerica;
+import lista.dupla.NodoGenerico;
 
 public class Main {
-
-    String[] comandos = { "create", "find", "delete", "list" };
+    static Scanner kb = new Scanner(System.in);
+    static ListaDuplaGenerica<Paciente> pacientes = new ListaDuplaGenerica<Paciente>();
 
     public static void main(String[] args) {
-
-        Scanner kb = new Scanner(System.in);
-        ListaDuplaGenerica<Paciente> pacientes = new ListaDuplaGenerica<Paciente>();
         boolean alive = true;
 
         System.out.println("Seja bem vindo ao Programa de Registros de Paciente (PRP)!");
@@ -27,37 +25,19 @@ public class Main {
                 case "help":
                     System.out.println("help -> Mostrar os comandos disponíveis");
                     System.out.println("exit -> Finaliza a sessão");
-                    System.out.println("create -> Adicionar um paciente");
+                    System.out.println("add -> Adicionar um paciente");
                     System.out.println("find -> Encontrar um paciente");
                     System.out.println("delete -> Remover um paciente");
                     System.out.println("list -> Listar todos os pacientes salvos");
                     break;
-                case "create":
-                    System.out.print("Digite o nome do paciente: ");
-                    String nome = kb.nextLine();
-
-                    System.out.print("Digite a idade do paciente: ");
-                    int idade = kb.nextInt();
-
-                    System.out.print("Digite o peso do paciente, em kg: ");
-                    double pesoKG = kb.nextDouble();
-
-                    System.out.print("Digite a altura do paciente, em metros: ");
-                    double alturaMetros = kb.nextDouble();
-
-                    System.out.print("Digite a circunferência do quadril do paciente, em centimetros: ");
-                    double circunfQuadrilCentimetros = kb.nextDouble();
-
-                    kb.nextLine();
-
-                    pacientes.inserirInicio(new Paciente(nome, idade,
-                            pesoKG, alturaMetros, circunfQuadrilCentimetros));
-
-                    System.out.println("Paciente novo inserido!");
+                case "add":
+                    addPaciente();
                     break;
                 case "list":
-                    System.out.println("Lista de pacientes registrados");
-                    System.out.println(pacientes);
+                    listPacientes();
+                    break;
+                case "find":
+                    findPaciente();
                     break;
                 default:
                     System.out
@@ -67,5 +47,48 @@ public class Main {
         } while (alive);
 
         kb.close();
+    }
+
+    private static void listPacientes() {
+        System.out.println("Lista de pacientes registrados");
+        System.out.println(pacientes);
+    }
+
+    private static void findPaciente() {
+        System.out.print("Digite o nome do paciente para buscar: ");
+        String nomeBusca = kb.nextLine();
+
+        NodoGenerico<Paciente> resultadoBusca = pacientes.pesquisar(
+                new Paciente(nomeBusca, 0, 0, 0, 0));
+        if (resultadoBusca == null) {
+            System.out.println("Paciente \"" + nomeBusca + "\" não encontrado!");
+        } else {
+            System.out.print("Paciente encontrado: ");
+            System.out.println(resultadoBusca.getDado());
+        }
+    }
+
+    private static void addPaciente() {
+        System.out.print("Digite o nome do paciente: ");
+        String nome = kb.nextLine();
+
+        System.out.print("Digite a idade do paciente: ");
+        int idade = kb.nextInt();
+
+        System.out.print("Digite o peso do paciente, em kg: ");
+        double pesoKG = kb.nextDouble();
+
+        System.out.print("Digite a altura do paciente, em metros: ");
+        double alturaMetros = kb.nextDouble();
+
+        System.out.print("Digite a circunferência do quadril do paciente, em centimetros: ");
+        double circunfQuadrilCentimetros = kb.nextDouble();
+
+        kb.nextLine();
+
+        pacientes.inserirInicio(new Paciente(nome, idade,
+                pesoKG, alturaMetros, circunfQuadrilCentimetros));
+
+        System.out.println("Paciente novo inserido!");
     }
 }

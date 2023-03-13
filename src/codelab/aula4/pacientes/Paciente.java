@@ -15,8 +15,12 @@ public class Paciente {
         this.circunfQuadrilCentimetros = circunfQuadrilCentimetros;
     }
 
+    public int freqCardiacaMax() {
+        return 220 - idade;
+    }
+
     public double[] freqCardiacaAlvo() {
-        int freqCardiacaMax = 220 - this.idade;
+        int freqCardiacaMax = freqCardiacaMax();
 
         double[] freqCardiAlvo = new double[2];
 
@@ -36,8 +40,14 @@ public class Paciente {
 
     @Override
     public String toString() {
-        return "Paciente [nome=" + nome + ", idade=" + idade + ", pesoKG=" + pesoKG + ", alturaMetros=" + alturaMetros
-                + ", circunfQuadrilCentimetros=" + circunfQuadrilCentimetros + "]";
+        return String.format(
+                "{nome: \"%s\",frequenciaCardiacaMaxima: %d,frequenciaCariacaAlvoMax: %3.2f frequenciaCariacaAlvoMin: %3.2f, IMC: %.2f, BAI: %.2f}",
+                this.nome, freqCardiacaMax(), freqCardiacaAlvo()[1], freqCardiacaAlvo()[0], imc(), bai());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return (obj instanceof Paciente) && ((Paciente) obj).nome.equals(this.nome);
     }
 
 }
