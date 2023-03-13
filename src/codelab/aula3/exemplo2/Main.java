@@ -22,7 +22,7 @@ public class Main {
 
         System.out.println("Busca impossível: " + listaDuplaConta.pesquisar(new Conta("Roberto")));
 
-        System.out.println("Busca impossível: " + listaDuplaConta.pesquisar(new Conta("Guilherme")));
+        System.out.println("Busca possível: " + listaDuplaConta.pesquisar(new Conta("Guilherme")));
 
         listaDuplaConta.deletar(new Conta("Guilherme"));
 
