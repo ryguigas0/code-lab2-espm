@@ -58,23 +58,36 @@ public class ListaDuplaGenerica<T> {
             inicio = null;
             fim = null;
         } else if (nodoParaDeletar.equals(inicio)) {
-            NodoGenerico<T> nodoDepois = nodoParaDeletar.dir;
-            nodoDepois.esq = null;
+            // NodoGenerico<T> nodoDepois = nodoParaDeletar.dir;
+            // nodoDepois.esq = null;
 
-            inicio = nodoDepois;
+            // inicio = nodoDepois;
+
+            nodoParaDeletar.dir.esq = null;
+
+            inicio = nodoParaDeletar.dir;
         } else if (nodoParaDeletar.equals(fim)) {
-            NodoGenerico<T> nodoAnterior = nodoParaDeletar.esq;
-            nodoAnterior.dir = null;
+            // NodoGenerico<T> nodoAnterior = nodoParaDeletar.esq;
+            // nodoAnterior.dir = null;
 
-            fim = nodoAnterior;
+            // fim = nodoAnterior;
+
+            nodoParaDeletar.esq.dir = null;
+
+            fim = nodoParaDeletar.esq;
         } else {
-            NodoGenerico<T> nodoAnterior = nodoParaDeletar.esq;
-            NodoGenerico<T> nodoDepois = nodoParaDeletar.dir;
+            // NodoGenerico<T> nodoAnterior = nodoParaDeletar.esq;
+            // NodoGenerico<T> nodoDepois = nodoParaDeletar.dir;
 
-            nodoAnterior.dir = nodoDepois;
-            nodoDepois.esq = nodoAnterior;
+            // nodoAnterior.dir = nodoDepois;
+            // nodoDepois.esq = nodoAnterior;
+
+            nodoParaDeletar.esq.dir = nodoParaDeletar.dir;
+            
+            nodoParaDeletar.dir.esq = nodoParaDeletar.esq;
         }
 
+        nodoParaDeletar = null;
         tamanho--;
     }
 
