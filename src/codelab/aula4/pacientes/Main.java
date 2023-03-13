@@ -78,7 +78,7 @@ public class Main {
         if (resultadoBusca == null) {
             System.out.println("Paciente \"" + nomeBusca + "\" não encontrado!");
         } else {
-            System.out.print("Paciente encontrado: ");
+            System.out.println("Paciente encontrado: ");
             System.out.println(resultadoBusca.getDado());
         }
     }
