@@ -39,6 +39,9 @@ public class Main {
                 case "find":
                     findPaciente();
                     break;
+                case "delete":
+                    deletePaciente();
+                    break;
                 default:
                     System.out
                             .println("Comando não reconhecido! Escreva `help` para uma lista de comandos disponíveis");
@@ -47,6 +50,19 @@ public class Main {
         } while (alive);
 
         kb.close();
+    }
+
+    private static void deletePaciente() {
+        System.out.print("Digite o nome do paciente para deletar: ");
+        String nomeBusca = kb.nextLine();
+
+        boolean resultado = pacientes.deletar(new Paciente(nomeBusca, 0, 0, 0, 0));
+
+        if (resultado) {
+            System.out.println("Paciente \"" + nomeBusca + "\" deletado!");
+        } else {
+            System.out.println("Paciente \"" + nomeBusca + "\" não encontrado! Nome incorreto ou paciente não existe!");
+        }
     }
 
     private static void listPacientes() {
