@@ -41,8 +41,9 @@ public class Paciente {
     @Override
     public String toString() {
         return String.format(
-                "{nome: \"%s\",frequenciaCardiacaMaxima: %d,frequenciaCariacaAlvoMax: %3.2f frequenciaCariacaAlvoMin: %3.2f, IMC: %.2f, BAI: %.2f}",
-                this.nome, freqCardiacaMax(), freqCardiacaAlvo()[1], freqCardiacaAlvo()[0], imc(), bai());
+            "NOME: %s\nFREQ CARDIACA MAX: %d\nFREQ CARDIACA ALVO: [%3.2f, %3.2f]\nIMC: %.2f\nBAI: %.2f",
+            this.nome, freqCardiacaMax(), freqCardiacaAlvo()[0], freqCardiacaAlvo()[1], imc(), bai()
+        );
     }
 
     @Override

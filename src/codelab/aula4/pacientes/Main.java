@@ -2,12 +2,11 @@ package codelab.aula4.pacientes;
 
 import java.util.Scanner;
 
-import lista.dupla.ListaDuplaGenerica;
 import lista.dupla.NodoGenerico;
 
 public class Main {
     static Scanner kb = new Scanner(System.in);
-    static ListaDuplaGenerica<Paciente> pacientes = new ListaDuplaGenerica<Paciente>();
+    static ListaPaciente pacientes = new ListaPaciente();
 
     public static void main(String[] args) {
         boolean alive = true;
