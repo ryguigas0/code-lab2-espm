@@ -48,7 +48,7 @@ public class Paciente {
 
     @Override
     public boolean equals(Object obj) {
-        return (obj instanceof Paciente) && ((Paciente) obj).nome.equals(this.nome);
+        return (obj instanceof Paciente) && ((Paciente) obj).nome.equalsIgnoreCase(this.nome);
     }
 
 }
