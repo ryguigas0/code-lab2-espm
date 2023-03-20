@@ -52,4 +52,18 @@ public class Database {
             return resultado.getDado();
         }
     }
+
+    public BilheteUnico[] listarBilhetes() {
+        NodoGenerico<BilheteUnico> curr = bilhetes.getInicio();
+        BilheteUnico[] output = new BilheteUnico[bilhetes.getTamanho()];
+        int currIndex = 0;
+
+        do {
+            output[currIndex] = curr.getDado();
+            curr = curr.getDireita();
+            currIndex++;
+        } while (curr != null);
+
+        return output;
+    }
 }

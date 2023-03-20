@@ -57,8 +57,7 @@ public class BilheteUnico {
 
     @Override
     public String toString() {
-        return "BilheteUnico [numero=" + numero + ", saldo=" + saldo + ", valorDaTarifa=" + valorDaTarifa + ", usuario="
-                + usuario + "]";
+        return "BilheteUnico [numero=" + numero + ", saldo=" + saldo + ", usuario=" + usuario + "]";
     }
 
     @Override

@@ -17,10 +17,10 @@ public class Sistema {
             opcao = dialogoOpcoes(new String[] { "Administrador", "Usuario", "Finalizar" });
             switch (opcao) {
                 case 1:
-                    alive = loopAdministrador();
+                    loopAdministrador();
                     break;
                 case 2:
-                    alive = loopUsuario();
+                    loopUsuario();
                     break;
                 case 3:
                     alive = false;
@@ -33,7 +33,7 @@ public class Sistema {
         } while (alive);
     }
 
-    private boolean loopAdministrador() {
+    private void loopAdministrador() {
         int opcao;
         do {
             opcao = dialogoOpcoes(new String[] { "Cadastrar bilhete", "Consultar bilhete", "Listar Bilhete", "Sair" });
@@ -56,14 +56,27 @@ public class Sistema {
                     }
                     showMessageDialog(null, message);
                     break;
+                case 3:
+                    showMessageDialog(null, listarBilhetesString());
+                    break;
                 case 4:
-                    return false;
+                    return;
 
                 default:
                     showMessageDialog(null, "Digite uma opção válida");
                     break;
             }
         } while (true);
+    }
+
+    private String listarBilhetesString() {
+        BilheteUnico[] bilhetes = db.listarBilhetes();
+        String msg = "";
+        for (int i = 0; i < bilhetes.length; i++) {
+            msg += bilhetes[i] + "\n";
+        }
+
+        return msg;
     }
 
     private Usuario encontrarUsuario() {
@@ -109,14 +122,14 @@ public class Sistema {
         return newUsuario;
     }
 
-    private boolean loopUsuario() {
+    private void loopUsuario() {
         int opcao;
         do {
             opcao = dialogoOpcoes(new String[] { "Consultar saldo", "Carregar bilhete", "Passar na catraca", "Sair" });
 
             switch (opcao) {
                 case 4:
-                    return false;
+                    return;
 
                 default:
                     showMessageDialog(null, "Digite uma opção válida");
