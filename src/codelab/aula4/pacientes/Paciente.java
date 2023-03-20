@@ -1,7 +1,5 @@
 package codelab.aula4.pacientes;
 
-import java.util.Random;
-
 public class Paciente {
     private String nome;
     private int idade;
@@ -15,15 +13,6 @@ public class Paciente {
         this.pesoKG = pesoKG;
         this.alturaMetros = alturaMetros;
         this.circunfQuadrilCentimetros = circunfQuadrilCentimetros;
-    }
-
-    public Paciente(String nome) {
-        this.nome = nome;
-        this.idade = (new Random()).nextInt(99) + 1;
-        this.pesoKG = (new Random()).nextDouble() * 90;
-        this.alturaMetros = (new Random()).nextDouble() * 2;
-        this.circunfQuadrilCentimetros = (new Random()).nextDouble() * 100;
-
     }
 
     public int freqCardiacaMax() {

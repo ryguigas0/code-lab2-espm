@@ -69,8 +69,13 @@ public class GUI {
 
     private void addPaciente() {
         String nome = showInputDialog(null, "Digite o nome do paciente");
+        int idade = Integer.parseInt(showInputDialog(null, "Digite a idade do paciente"));
+        double pesoKG = Double.parseDouble(showInputDialog(null, "Digite o peso do paciente (KG)"));
+        double alturaMetros = Double.parseDouble(showInputDialog(null, "Digite a altura do paciente (m)"));
+        double circunfQuadrilCentimetros = Double
+                .parseDouble(showInputDialog(null, "Digite a circunferência do quadril do paciente (cm)"));
 
-        pacientes.inserirInicio(new Paciente(nome));
+        pacientes.inserirInicio(new Paciente(nome, idade, pesoKG, alturaMetros, circunfQuadrilCentimetros));
     }
 
     private String gerarMensagemInicial() {
