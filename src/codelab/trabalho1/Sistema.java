@@ -38,20 +38,18 @@ public class Sistema {
         do {
             opcao = dialogoOpcoes(new String[] { "Cadastrar bilhete", "Consultar bilhete", "Listar Bilhete", "Sair" });
 
-            Usuario usuario;
-
             switch (opcao) {
                 case 1:
-                    usuario = cadastrarUsuario();
-                    if (usuario != null) {
-                        cadastrarBilhete(usuario);
+                    Usuario usuarioCadastrado = cadastrarUsuario();
+                    if (usuarioCadastrado != null) {
+                        cadastrarBilhete(usuarioCadastrado);
                     }
                     break;
                 case 2:
                     String message = "Bilhete único não encontrado!";
-                    usuario = encontrarUsuario();
-                    if (usuario != null) {
-                        BilheteUnico bilheteUnico = encontrarBilheteUnico(usuario);
+                    Usuario usuarioEncontrado = encontrarUsuario();
+                    if (usuarioEncontrado != null) {
+                        BilheteUnico bilheteUnico = encontrarBilheteUnico(usuarioEncontrado);
                         message = bilheteUnico.toString();
                     }
                     showMessageDialog(null, message);
@@ -127,7 +125,52 @@ public class Sistema {
         do {
             opcao = dialogoOpcoes(new String[] { "Consultar saldo", "Carregar bilhete", "Passar na catraca", "Sair" });
 
+            String message = "";
+            Usuario usuarioEncontrado = null;
+
             switch (opcao) {
+                case 1:
+                    message = "Usuário não encontrado!";
+                    usuarioEncontrado = encontrarUsuario();
+                    if (usuarioEncontrado != null) {
+                        BilheteUnico bilheteUnico = encontrarBilheteUnico(usuarioEncontrado);
+                        message = String.format("Saldo atual: R$%.2f", bilheteUnico.getSaldo());
+                    }
+                    showMessageDialog(null, message);
+                    break;
+                case 2:
+                    usuarioEncontrado = encontrarUsuario();
+                    if (usuarioEncontrado != null) {
+                        BilheteUnico bilheteUnico = encontrarBilheteUnico(usuarioEncontrado);
+                        String valorCarregarString = showInputDialog(null,
+                                "Escreva o valor de recarga no bilhete único de " + usuarioEncontrado.getNome())
+                                .replace(",", ".");
+
+                        double valorCarregar = Double.parseDouble(valorCarregarString);
+                        if (valorCarregar <= 0) {
+                            showMessageDialog(null, "Valor inválido!");
+                            break;
+                        }
+
+                        bilheteUnico.carregarBilhete(valorCarregar);
+                    } else {
+                        showMessageDialog(null, "Usuário não encontrado!");
+                    }
+                    break;
+                case 3:
+                    usuarioEncontrado = encontrarUsuario();
+                    if (usuarioEncontrado != null) {
+                        BilheteUnico bilheteUnico = encontrarBilheteUnico(usuarioEncontrado);
+
+                        if (bilheteUnico.passarNaCatraca()) {
+                            showMessageDialog(null, "Usuário passou na catraca!");
+                        } else {
+                            showMessageDialog(null, "Usuário não tem saldo o suficiente para passar na catraca!");
+                        }
+                    } else {
+                        showMessageDialog(null, "Usuário não encontrado!");
+                    }
+                    break;
                 case 4:
                     return;
 
