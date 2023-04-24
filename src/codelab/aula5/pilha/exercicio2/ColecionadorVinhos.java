@@ -1,4 +1,4 @@
-package codelab.aula5.exercicio2;
+package codelab.aula5.pilha.exercicio2;
 
 import java.util.Scanner;
 import java.util.Stack;
