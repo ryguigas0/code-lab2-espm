@@ -20,6 +20,7 @@ pilha.add(dado); // -> Adiciona o dado na pilha
 pilha.pop();     // -> Retorna e remove o último elemento da pilha
 pilha.peek();    // -> Retorna o último elemento da pilha
 pilha.isEmpty(); // -> Retorna verdadeiro se estiver vazio
+pilha.toArray(new T[] {}); // -> Retorna um vetor na ordem dos elementos do topo para baixo
 ```
 
 ## Fila
@@ -43,4 +44,5 @@ fila.add(dado); // Adiciona o elemento na fila
 T poped = fila.remove(); // Remove o elemento mais velho na lista e retorna ele
 T top = fila.element(); // Retorna o elemento mais velho na lista
 fila.size(); // Retorna o tamanho da fila
+fila.toArray(new T[] {}); // Retorna um vetor na ordem dos elementos do início até o fim
 ```
