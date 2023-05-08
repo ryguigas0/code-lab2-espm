@@ -4,7 +4,7 @@ O repositório da matéria de laboratório de programação 2 de Java
 
 ## Bibliotecas externas obrigatórias
 
-- [lista-lib](https://github.com/ryguigas0/lista-lib)
+- [estruturas-lib](https://github.com/ryguigas0/estruturas-lib): Implementação das estruturas de dados que nã o foram codificadas nesse projeto
 
 ## Ferramentas usadas
 
