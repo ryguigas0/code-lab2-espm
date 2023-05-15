@@ -1,8 +1,8 @@
-package codelab.aula6.arvore;
+package codelab.aula6;
 
-import arvore.BTree;
+import arvore.btree.BTree;
 
-public class Main {
+public class Arvore {
     public static void main(String[] args) {
         BTree<Integer> arvore = new BTree<Integer>();
 
@@ -18,7 +18,17 @@ public class Main {
         System.out.println("Em ordem: " + arvore.toStringEmOrdem());
         System.out.println("Pós ordem: " + arvore.toStringPosOrdem());
 
+        
         System.out.println("Tem 19? " + arvore.presente(19));
+        arvore.remover(19);
+        System.out.println("Pré ordem: " + arvore.toStringPreOrdem());
+        System.out.println("Em ordem: " + arvore.toStringEmOrdem());
+        System.out.println("Pós ordem: " + arvore.toStringPosOrdem());
+        
         System.out.println("Tem 22? " + arvore.presente(22));
+        arvore.remover(22);
+        System.out.println("Pré ordem: " + arvore.toStringPreOrdem());
+        System.out.println("Em ordem: " + arvore.toStringEmOrdem());
+        System.out.println("Pós ordem: " + arvore.toStringPosOrdem());
     }
 }
