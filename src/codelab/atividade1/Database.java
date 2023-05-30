@@ -1,4 +1,4 @@
-package codelab.trabalho1;
+package codelab.atividade1;
 
 import java.util.Random;
 
