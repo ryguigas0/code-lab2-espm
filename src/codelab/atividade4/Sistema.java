@@ -39,7 +39,7 @@ public class Sistema {
                         break;
                 }
             } catch (Exception e) {
-                showInternalMessageDialog(null, e.getMessage());
+                showMessageDialog(null, e.getMessage());
             }
         }
     }
@@ -62,9 +62,8 @@ public class Sistema {
 
         double distanciaKM = rotasGrafo.calcularCaminhoMinimo(indA).get(indB);
 
-        showMessageDialog(null,
-                String.format("A menor distância entre %s e %s é %.2f",
-                        nomeCidadeA, nomeCidadeB, distanciaKM));
+        showMessageDialog(null, String.format("A menor distância entre %s e %s é %.2f",
+                nomeCidadeA, nomeCidadeB, distanciaKM));
     }
 
     private void imprimirRotasDisponiveis() {
@@ -85,8 +84,6 @@ public class Sistema {
         String nomeCidadeB = stringInput("Digite o nome da cidade de destino da rota");
         double distanciaKM = doubleInput("Digite a distância entre " + nomeCidadeA + " e " + nomeCidadeB, 0.0);
 
-        rotasGrafo.adicionarAresta(numeroCidade, numeroCidade + 1, distanciaKM);
-
         if (!cidadeIndex.containsKey(nomeCidadeA)) {
             cidadeIndex.put(nomeCidadeA, numeroCidade);
             numeroCidade += 1;
@@ -96,6 +93,8 @@ public class Sistema {
             cidadeIndex.put(nomeCidadeB, numeroCidade);
             numeroCidade += 1;
         }
+
+        rotasGrafo.adicionarAresta(cidadeIndex.get(nomeCidadeA), cidadeIndex.get(nomeCidadeB), distanciaKM);
     }
 
     private String stringInput(String message) {
