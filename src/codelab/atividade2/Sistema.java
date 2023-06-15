@@ -1,4 +1,5 @@
 package codelab.atividade2;
+
 import java.util.*;
 
 import static javax.swing.JOptionPane.*;

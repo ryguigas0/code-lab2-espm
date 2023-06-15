@@ -17,7 +17,7 @@ public class Grafo {
     public void adicionarAresta(int verticeInicio, int verticeFim, double peso) {
         if (verticeInicio <= 0 || verticeFim <= 0) {
             // Para o algoritimo Dijkstra não importa a identificação dos vertices
-            throw new RuntimeException("Vertices não pode ser negativos");
+            throw new RuntimeException("Vertices não pode ser negativos ou nulos");
         }
 
         if (peso < 0) {
